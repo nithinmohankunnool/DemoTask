@@ -1,0 +1,66 @@
+﻿@model DemoTaskProject.Models.SubTaskItem
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>SubTaskItem</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SubTaskName" class="control-label"></label>
+                <input asp-for="SubTaskName" class="form-control" />
+                <span asp-validation-for="SubTaskName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubDescription" class="control-label"></label>
+                <input asp-for="SubDescription" class="form-control" />
+                <span asp-validation-for="SubDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubStartDate" class="control-label"></label>
+                <input asp-for="SubStartDate" class="form-control" />
+                <span asp-validation-for="SubStartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubFinishDate" class="control-label"></label>
+                <input asp-for="SubFinishDate" class="form-control" />
+                <span asp-validation-for="SubFinishDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubState" class="control-label"></label>
+               <!-- <input asp-for="SubState" class="form-control" /> -->
+
+
+                <select asp-for="SubState" class="form-control">
+                    <option value="set">Set</option>
+                    <option value="Planned">Planned</option>
+                    <option value="InProgress">InProgress</option>
+                    <option value="Finished">Finished</option>
+
+                </select>
+
+                <span asp-validation-for="SubState" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TaskId" class="control-label"></label>
+                <input asp-for="TaskId" class="form-control" />
+
+                <span asp-validation-for="TaskId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

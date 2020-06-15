@@ -1,0 +1,74 @@
+﻿@model IEnumerable<DemoTaskProject.Models.SubTaskItem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <h6><a asp-controller="subtaskitems" asp-action="Create">Create new task </a></h6>
+   </p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SubTaskName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubFinishDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskId)
+                
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubTaskName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubFinishDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SubTaskId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SubTaskId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SubTaskId">Delete</a>
+            </td>
+        </tr>
+            }
+        }
+        else { 
+    <tr><td>There are no sub taks</td></tr>
+        }
+    </tbody>
+</table>

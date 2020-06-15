@@ -1,0 +1,82 @@
+﻿@model DemoTaskProject.Models.TaskItem
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1> Subtasks</h1>
+
+<h3><a asp-controller="tasks" asp-action="Create">Create new sub task </a></h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinishDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model == null)
+        {
+            <tr><td>There are no taks</td></tr>
+
+
+
+        }
+        else
+        {
+
+            
+                <tr>
+                    <td>
+                        @Html.Display(Model.TaskName)
+                        
+                    </td>
+                    <td>
+                        @Html.Display(Model.Description)
+                    </td>
+                    <td>
+                        @if (Model.StartDate != null)
+                        {
+                            @Model.StartDate.ToString("MM/dd/yyyy")
+                        }
+
+                        
+                    </td>
+                    <td>
+                        @if (Model.FinishDate != null)
+                        {
+                            @Model.FinishDate.ToString("MM/dd/yyyy")
+                        }
+                       
+                    </td>
+                    <td>
+                        @if(Model.State!=null)
+                        @Html.Display(Model.State)
+                        else
+                            @Html.Display("Set")
+                    </td>
+                    <td>
+
+                        details
+                        
+                    </td>
+                </tr>
+            
+        }
+
+
+    </tbody>
+</table>
